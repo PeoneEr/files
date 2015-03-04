@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 group :default do
-  gem 'annotate'
   gem 'configliere'
   gem 'inherited_resources'
   gem 'pg'
@@ -16,3 +15,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'annotate'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-deploytags'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+  gem "capistrano-db-tasks", require: false
+  gem 'capistrano-passenger'
+end
