@@ -1,14 +1,15 @@
 <div class="main_page_content">
-  <% @files.each do |dir, titles| %>
+  <% @files.each do |dir, films| %>
+    <% watched = 0; films.each do |film| film.watched ? watched += 1 : watched += 0; end %>
     <div class='dir'>
       <%= dir %> <a href='#' class='js-toggle-dir toggle-dir'>Свернуть</a>
     </div>
 
-    <ul class='titles'>
-      <% titles.each do |title| %>
+    <ul class='titles <%= watched.to_i == films.count.to_i ? "hidden" : "" %>'>
+      <% films.each do |film| %>
         <li class='title'>
-          <%= check_box_tag 'watched', title.id, title.watched ? true : false, class: 'js-child-item' %>
-          <%= title.title %>
+          <%= check_box_tag 'watched', film.id, film.watched ? true : false, class: 'js-child-item' %>
+          <%= film.title %>
         </li>
       <% end %>
     </ul>

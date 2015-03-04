@@ -6,6 +6,7 @@ group :default do
   gem 'pg'
   gem 'rails', '3.2.21'
   gem 'simple_form'
+  gem 'whenever'
 end
 
 group :assets do
