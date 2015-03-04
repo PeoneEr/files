@@ -1,14 +1,16 @@
-<% @files.each do |dir, titles| %>
-  <div class='dir root'>
-    <%= dir %>
-  </div>
+<div class="main_page_content">
+  <% @files.each do |dir, titles| %>
+    <div class='dir'>
+      <%= dir %> <a href='#' class='js-toggle-dir toggle-dir'>Свернуть</a>
+    </div>
 
-  <ul class='titles childs'>
-    <% titles.each do |title| %>
-      <li class='title'>
-        <%= check_box_tag 'watched', title.id, title.watched ? true : false, class: 'js-child-item' %>
-        <%= title.title %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+    <ul class='titles'>
+      <% titles.each do |title| %>
+        <li class='title'>
+          <%= check_box_tag 'watched', title.id, title.watched ? true : false, class: 'js-child-item' %>
+          <%= title.title %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

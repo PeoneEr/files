@@ -4,7 +4,7 @@ class MainPageController < ApplicationController
       Film.find(params[:id]).update_attribute(:watched, true)
       render nothing: true, status: 202
     else
-      @files = Film.order('updated_at desc').group_by(&:dir)
+      @files = Film.order('watched, title').group_by(&:dir)
     end
   end
 end
