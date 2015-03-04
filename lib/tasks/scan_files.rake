@@ -3,10 +3,10 @@ require 'configliere'
 
 namespace :files do
 
-  desc ''
+  desc 'Запись новых фильмов и сериалов'
   task :scan => :environment do
     Settings.read(Rails.root.join('config', 'settings.yml'))
-    p Settings
-    ScanFile.new.scan(Settings['dir.url'])
+    ScanFile.new.scan(Settings['dir.films_url'])
+    ScanFile.new.scan(Settings['dir.serials_url'])
   end
 end

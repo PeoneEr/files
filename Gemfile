@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
 group :default do
+  gem 'annotate'
   gem 'configliere'
   gem 'inherited_resources'
+  gem 'pg'
   gem 'rails', '3.2.21'
-  gem 'sqlite3'
+  gem 'simple_form'
 end
 
 group :assets do
