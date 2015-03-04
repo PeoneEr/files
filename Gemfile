@@ -16,7 +16,7 @@ group :assets do
   gem 'jquery-rails'
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
-  gem 'header'
+  gem 'header'#, :path => '/Users/bvm/workspace/my/header'
 end
 
 group :development do
