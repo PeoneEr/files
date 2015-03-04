@@ -56,6 +56,7 @@ module Files
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")
+    config.assets.precompile += %w( header.css  )
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
