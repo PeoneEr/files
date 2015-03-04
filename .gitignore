@@ -5,3 +5,5 @@
 /test
 /config/database.yml
 /config/settings.yml
+/config/deploy.yml
+/config/deploy/production.rb
