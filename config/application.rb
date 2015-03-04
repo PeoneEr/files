@@ -57,6 +57,8 @@ module Files
     config.assets.enabled = true
     config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")
     config.assets.precompile += %w( vendor/header.css  )
+    config.sass.load_paths << File.expand_path('../../vendor/assets/stylesheets/')
+    config.sass.load_paths << File.expand_path('../../lib/assets/stylesheets/')
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
