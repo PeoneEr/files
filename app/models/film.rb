@@ -1,5 +1,5 @@
 class Film < ActiveRecord::Base
-  attr_accessible :title, :dir
+  attr_accessible :title, :dir, :timing
 
   validates_presence_of :title, :dir
   validates_uniqueness_of :title
@@ -16,4 +16,5 @@ end
 #  watched    :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  timing     :string(255)      default("Просмотр не начат")
 #
