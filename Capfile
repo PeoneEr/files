@@ -7,6 +7,7 @@ require 'capistrano/deploytags'
 require 'capistrano/passenger'
 require 'capistrano-db-tasks'
 require "whenever/capistrano"
+require 'capistrano/sidekiq'
 
 set :rvm_type, :user
 set :rvm_ruby_version, '2.0.0-p481'

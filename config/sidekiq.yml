@@ -1,0 +1,11 @@
+---
+:concurrency: 6
+:queues:
+  - [critical, 2]
+  - [default, 2]
+
+production:
+  :concurrency: 55
+  :queues:
+    - [critical, 20]
+    - [default, 10]
