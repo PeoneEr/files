@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/seuros/capistrano-sidekiq.git
-  revision: 6d16ad6b610e88f91a9fd8f981c0f1fe64b8e4c3
-  specs:
-    capistrano-sidekiq (0.4.1)
-      capistrano
-      sidekiq
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -60,6 +52,9 @@ GEM
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-sidekiq (0.4.0)
+      capistrano
+      sidekiq
     celluloid (0.15.2)
       timers (~> 1.1.0)
     chronic (0.10.2)
@@ -206,7 +201,7 @@ DEPENDENCIES
   capistrano-passenger
   capistrano-rails
   capistrano-rvm
-  capistrano-sidekiq!
+  capistrano-sidekiq
   coffee-rails (~> 3.2.1)
   compass-rails
   configliere
