@@ -2,6 +2,8 @@
   padding: 20px
 
   .dir
+    margin: 10px 0
+
     .toggle-dir
       border-bottom: 1px dashed #ccc
       text-decoration: none
@@ -14,4 +16,11 @@
       display: none
 
     li
-      margin: 0 0 0 20px
+      margin: 10px 0 0 20px
+
+      &:hover
+        font-weight: bold
+
+      &.is-checked
+        font-style: italic
+        text-decoration: line-through

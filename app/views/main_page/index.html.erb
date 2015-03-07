@@ -8,7 +8,7 @@
 
     <ul class='titles <%= watched.to_i == films.count.to_i ? "hidden" : "" %>'>
       <% films.each do |film| %>
-        <li class='title'>
+        <li class='title <%= "is-checked" if film.watched %>'>
           <%= check_box_tag "watched_#{film.id}", film.id, film.watched ? true : false, class: 'js-child-item' %>
           <label for="watched_<%= film.id %>">
             <%= film.title %>
