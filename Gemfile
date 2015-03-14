@@ -7,6 +7,7 @@ group :default do
   gem 'rails', '3.2.21'
   gem 'sidekiq'
   gem 'simple_form'
+  gem 'sinatra', :require => nil
   gem 'whenever'
 end
 
