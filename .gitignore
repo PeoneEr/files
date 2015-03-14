@@ -6,3 +6,4 @@
 /config/settings.yml
 /config/deploy.rb
 /config/deploy/production.rb
+/config/newrelic.yml
