@@ -12,6 +12,7 @@ group :default do
 end
 
 gem 'sass-rails',   '~> 3.2.3'
+gem 'ffi', '= 1.9.6'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
