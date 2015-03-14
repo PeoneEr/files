@@ -2,17 +2,17 @@ source 'https://rubygems.org'
 
 group :default do
   gem 'configliere'
+  gem 'ffi', '= 1.9.6'
   gem 'inherited_resources'
+  gem 'newrelic_rpm'
   gem 'pg'
   gem 'rails', '3.2.21'
+  gem 'sass-rails',   '~> 3.2.3'
   gem 'sidekiq'
   gem 'simple_form'
   gem 'sinatra', :require => nil
   gem 'whenever'
 end
-
-gem 'sass-rails',   '~> 3.2.3'
-gem 'ffi', '= 1.9.6'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
