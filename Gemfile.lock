@@ -89,11 +89,11 @@ GEM
     connection_pool (2.0.0)
     erubis (2.7.0)
     execjs (2.3.0)
-    ffi (1.9.6)
+    ffi (1.9.7)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
-    header (0.0.3)
+    header (0.0.4)
       compass-rails
       sass-rails (>= 3.2)
     highline (1.6.21)
