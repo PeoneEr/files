@@ -11,6 +11,6 @@ require 'capistrano/sidekiq'
 require 'new_relic/recipes'
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.0.0-p481'
+set :rvm_ruby_version, '2.1.5p273'
 
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
