@@ -6,5 +6,9 @@ class CreateUserFilms < ActiveRecord::Migration
       t.boolean :watched
       t.timestamps
     end
+
+    Film.where(watched: true).each do |e|
+      UserFilm.create(user_id: 1, film_id: e.id, watched: true)
+    end
   end
 end
