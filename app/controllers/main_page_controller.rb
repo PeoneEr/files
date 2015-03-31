@@ -10,7 +10,7 @@ class MainPageController < ApplicationController
       end
       render nothing: true, status: 202
     else
-      @files = Film.order('watched, title').group_by(&:dir)
+      @files = Film.order('title').group_by(&:dir)
     end
   end
 end
