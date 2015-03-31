@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 group :default do
   gem 'configliere'
+  gem 'devise'
   gem 'ffi', '= 1.9.6'
   gem 'inherited_resources'
   gem 'newrelic_rpm'

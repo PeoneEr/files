@@ -4,6 +4,8 @@ class Film < ActiveRecord::Base
   validates_presence_of :title, :dir
   validates_uniqueness_of :title
 
+  has_many :user_films
+
 end
 
 # == Schema Information
