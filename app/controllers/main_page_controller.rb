@@ -4,13 +4,11 @@ class MainPageController < ApplicationController
   def index
     if request.xhr?
       if UserFilm.where(user_id: current_user.id, film_id: params[:id]).any?
-        UserFilm.where(user_id: current_user.id, film_id: params[:id]).first.delay.update_attribute(:watched, params[:watched])
-      else
-        UserFilm.create(user_id: current_user.id, film_id: params[:id], watched: params[:watched])
+        UserFilm.where(user_id: current_user.id, film_id: params[:id]).first.update_attribute(:watched, params[:watched])
       end
       render nothing: true, status: 202
     else
-      @files = Film.order('title').group_by(&:dir)
+      @dirs = Film.all.sort.map(&:dir).uniq
     end
   end
 end

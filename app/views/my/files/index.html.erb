@@ -1,1 +1,36 @@
-Huy!
+<div class="row">
+  <div class="small-3 columns">
+    <ul class="side-nav">
+      <li>
+        <%= link_to 'Список фильмов и сериалов', root_path %>
+      </li>
+      <li>
+        <%= link_to 'Добавить фильм', new_film_my_files_path %>
+      </li>
+      <li>
+        <%= link_to 'Добавить сериал', new_serial_my_files_path %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="main_page_content small-9 columns">
+    <% @files.each do |dir, films| %>
+      <% watched = 0; films.each do |film| film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) ? watched += 1 : watched += 0; end %>
+
+      <div class='dir'>
+        <%= dir %> <a href='#' class='js-toggle-dir toggle-dir'>Свернуть</a>
+      </div>
+
+      <ul class='titles <%= watched.to_i == films.count.to_i ? "hidden" : "" %>'>
+        <% films.sort.each do |film| %>
+          <li class='title <%= "is-checked" if film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) %>'>
+            <%= check_box_tag "watched_#{film.id}", film.id, film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) ? true : false, class: 'js-child-item' %>
+            <label for="watched_<%= film.id %>">
+              <%= film.title %>
+            </label>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

@@ -4,6 +4,7 @@ class My::FilesController < My::ApplicationController
   helper_method :title, :dir, :serias_count
 
   def index
+    @files = User.find(current_user.id).films.ordered.group_by(&:dir)
   end
 
   def new_film
@@ -13,7 +14,8 @@ class My::FilesController < My::ApplicationController
   def create_film
     @film = Film.new(title: title, dir: title)
     if @film.save
-      redirect_to root_path
+      @film.user_films.create(user_id: current_user.id, film_id: @film.id, dir: @film.dir)
+      redirect_to my_root_path
     else
       render 'new_film'
     end
@@ -28,7 +30,19 @@ class My::FilesController < My::ApplicationController
       Film.create(dir: dir, title: "Серия №#{i+1}")
     end
 
-    redirect_to root_path
+    Film.where(dir: dir).each do |film|
+      film.user_films.create(user_id: current_user.id, film_id: film.id, dir: dir)
+    end
+
+    redirect_to my_root_path
+  end
+
+  def start_watching
+    Film.where(dir: params[:dir]).each do |film|
+      film.user_films.create(user_id: current_user.id, film_id: film.id, dir: params[:dir])
+    end
+
+    redirect_to my_root_path
   end
 
   def title

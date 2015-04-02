@@ -1,5 +1,7 @@
 class UserFilm < ActiveRecord::Base
-  attr_accessible :user_id, :film_id, :watched
+  attr_accessible :user_id, :film_id, :watched, :dir
+
+  validates_presence_of :film_id, :dir, :user_id
 
   belongs_to :user
   belongs_to :film

@@ -4,9 +4,11 @@ class Film < ActiveRecord::Base
                   :serias_count
 
   validates_presence_of :title, :dir
-  validates_uniqueness_of :title
 
   has_many :user_films
+  has_many :users, :through => :user_films
+
+  scope :ordered, order(:title)
 
 end
 
