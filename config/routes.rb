@@ -1,9 +1,18 @@
 Files::Application.routes.draw do
-  devise_for :users
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 
   root to: 'main_page#index'
 
-  resources :files
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  devise_for :users
+
+  namespace :my do
+    resources :files do
+      get :new_film, on: :collection
+      post :create_film, on: :collection
+
+      get :new_serial, on: :collection
+      post :create_serial, on: :collection
+    end
+  end
 end

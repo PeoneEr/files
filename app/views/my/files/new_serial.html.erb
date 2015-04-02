@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="small-12 column">
+    <%= simple_form_for [:my, @film], url: create_serial_my_files_path do |f|  %>
+      <%= f.input :dir, label: 'Название сериала', input_html: { placeholder: 'Название сериала' } %>
+      <%= f.input :serias_count, as: :decimal, label: 'Количество серий', input_html: { placeholder: 'Количество серий' } %>
+      <%= f.submit 'Создать', class: 'button' %>
+    <% end %>
+  </div>
+</div>

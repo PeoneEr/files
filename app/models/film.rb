@@ -1,5 +1,7 @@
 class Film < ActiveRecord::Base
-  attr_accessible :title, :dir, :timing
+  attr_accessor :serias_count
+  attr_accessible :title, :dir, :timing,
+                  :serias_count
 
   validates_presence_of :title, :dir
   validates_uniqueness_of :title

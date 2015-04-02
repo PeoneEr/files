@@ -1,0 +1,2 @@
+module My::FilesHelper
+end

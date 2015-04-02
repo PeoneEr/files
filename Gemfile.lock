@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/zurb/foundation-rails.git
+  revision: dc2a9327ce1ae47e2d118da8621d5bd0d2b2da89
+  ref: dc2a932
+  specs:
+    foundation-rails (5.4.5.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -225,6 +234,7 @@ DEPENDENCIES
   configliere
   devise
   ffi (= 1.9.6)
+  foundation-rails!
   header
   inherited_resources
   jquery-rails

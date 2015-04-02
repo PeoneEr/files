@@ -18,6 +18,7 @@ end
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
+  gem 'foundation-rails', :git => 'https://github.com/zurb/foundation-rails.git', :ref => 'dc2a932'
   gem 'header'#, :path => '/Users/bvm/workspace/my/header'
   gem 'jquery-rails'
   gem 'uglifier', '>= 1.0.3'
