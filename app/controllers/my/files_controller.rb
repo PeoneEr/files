@@ -7,13 +7,18 @@ class My::FilesController < My::ApplicationController
     @files = User.find(current_user.id).films.ordered.group_by(&:dir)
   end
 
+  def destroy
+    User.find(current_user.id).user_films.where(dir: params[:id]).destroy_all
+    redirect_to my_root_path
+  end
+
   def new_film
     @film = Film.new
   end
 
   def create_film
     @film = Film.new(title: title, dir: title)
-    if @film.save
+    if @film.save(validate: false)
       @film.user_films.create(user_id: current_user.id, film_id: @film.id, dir: @film.dir)
       redirect_to my_root_path
     else
@@ -27,7 +32,8 @@ class My::FilesController < My::ApplicationController
 
   def create_serial
     serias_count.times do |i|
-      Film.create(dir: dir, title: "Серия №#{i+1}")
+      f = Film.new(dir: dir, title: "Серия №#{i+1}")
+      f.save(validate: false)
     end
 
     Film.where(dir: dir).each do |film|

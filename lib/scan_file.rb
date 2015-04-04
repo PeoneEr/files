@@ -1,6 +1,7 @@
 class ScanFile
   def scan(file_name)
     accepted_formats = ['.avi', '.mp4', '.mkv']
+
     if File.ftype(file_name) == 'file'
       f_name = file_name.split('/').last
       if accepted_formats.include? File.extname(f_name)
