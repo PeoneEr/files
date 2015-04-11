@@ -3,6 +3,8 @@ class UserFilm < ActiveRecord::Base
 
   validates_presence_of :film_id, :dir, :user_id
 
+  validates_uniqueness_of :film_id
+
   belongs_to :user
   belongs_to :film
 
