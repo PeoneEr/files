@@ -1,5 +1,6 @@
 class Film < ActiveRecord::Base
   attr_accessor :serias_count
+
   attr_accessible :title, :dir, :timing,
                   :serias_count
 

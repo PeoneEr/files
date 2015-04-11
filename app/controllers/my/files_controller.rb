@@ -45,7 +45,7 @@ class My::FilesController < My::ApplicationController
 
   def start_watching
     Film.where(dir: params[:dir]).each do |film|
-      film.user_films.create(user_id: current_user.id, film_id: film.id, dir: params[:dir])
+      film.user_films.create!(user_id: current_user.id, film_id: film.id, dir: params[:dir])
     end
 
     redirect_to my_root_path

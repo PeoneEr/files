@@ -18,4 +18,6 @@ $ ->
   $('.js-toggle-dir').click ->
     $(this).parent().next('.titles').slideToggle()
 
+    false
+
   false
