@@ -30,7 +30,7 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-deploytags'
-  gem 'capistrano-passenger'
+  gem 'capistrano-passenger', '0.0.2'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-sidekiq'
