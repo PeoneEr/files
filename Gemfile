@@ -34,4 +34,9 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-sidekiq'
+  gem 'rspec-rails', '~> 3.0'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 3.0'
 end
