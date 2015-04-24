@@ -24,19 +24,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
-  gem "capistrano-db-tasks", require: false
+group :development, :test do
   gem 'annotate'
   gem 'capistrano'
   gem 'capistrano-bundler'
+  gem 'capistrano-db-tasks', require: false
   gem 'capistrano-deploytags'
   gem 'capistrano-passenger'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-sidekiq'
-  gem 'rspec-rails', '~> 3.0'
-end
-
-group :test do
   gem 'rspec-rails', '~> 3.0'
 end
