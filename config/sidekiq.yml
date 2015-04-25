@@ -5,7 +5,7 @@
   - [default, 2]
 
 production:
-  :concurrency: 55
+  :concurrency: 10
   :queues:
-    - [critical, 20]
-    - [default, 10]
+    - [critical, 5]
+    - [default, 5]
