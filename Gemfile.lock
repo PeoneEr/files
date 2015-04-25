@@ -104,6 +104,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-i18n (0.12.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.5.2)
@@ -192,6 +193,8 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sass (3.4.13)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -227,7 +230,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.43)
+    tzinfo (0.3.44)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -253,6 +256,7 @@ DEPENDENCIES
   compass-rails
   configliere
   devise
+  devise-i18n
   ffi (= 1.9.6)
   foundation-rails!
   header
@@ -262,6 +266,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.21)
   rspec-rails (~> 3.0)
+  russian
   sass-rails (~> 3.2.3)
   sidekiq
   simple_form

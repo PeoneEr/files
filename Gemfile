@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 group :default do
   gem 'configliere'
   gem 'devise'
+  gem 'devise-i18n'
   gem 'ffi', '= 1.9.6'
   gem 'inherited_resources'
   gem 'newrelic_rpm'
@@ -12,6 +13,7 @@ group :default do
   gem 'sidekiq'
   gem 'simple_form'
   gem 'sinatra', :require => nil
+  gem 'russian'
   gem 'whenever'
 end
 
