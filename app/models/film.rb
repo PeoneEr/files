@@ -10,7 +10,7 @@ class Film < ActiveRecord::Base
   has_many :user_films
   has_many :users, :through => :user_films
 
-  scope :ordered, order(:title)
+  scope :ordered, -> { order(:title) }
 
 end
 

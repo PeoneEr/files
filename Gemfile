@@ -8,22 +8,23 @@ group :default do
   gem 'inherited_resources'
   gem 'newrelic_rpm'
   gem 'pg'
-  gem 'rails', '3.2.21'
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'rails'
+  gem 'sass-rails'
   gem 'sidekiq'
   gem 'simple_form'
   gem 'sinatra', :require => nil
   gem 'russian'
   gem 'whenever'
+  gem 'protected_attributes'
 end
 
 group :assets do
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'compass-rails'
+  gem 'coffee-rails'
+  gem 'compass-rails', '~> 2.0.2'
   gem 'foundation-rails', :git => 'https://github.com/zurb/foundation-rails.git', :ref => 'dc2a932'
   gem 'header'#, :path => '/Users/bvm/workspace/my/header'
   gem 'jquery-rails'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 group :development, :test do
@@ -36,5 +37,5 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-sidekiq'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails'
 end
