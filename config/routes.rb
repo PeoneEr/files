@@ -3,6 +3,7 @@ Files::Application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   root to: 'main_page#index'
+  post '/' => 'main_page#index'
 
   devise_for :users
 
