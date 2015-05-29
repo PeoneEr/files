@@ -4,7 +4,7 @@ class My::FilesController < My::ApplicationController
   helper_method :title, :dir, :serias_count
 
   def index
-    @files = current_user.films.search { paginate page: 1, per_page: 1_000_000; order_by :title; }.results.to_a.group_by(&:dir)
+    @files = current_user.films.ordered.group_by(&:dir)
   end
 
   def destroy
