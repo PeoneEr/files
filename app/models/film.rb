@@ -12,6 +12,10 @@ class Film < ActiveRecord::Base
 
   scope :ordered, -> { order(:title) }
 
+  searchable do
+    string :title
+    string :dir
+  end
 end
 
 # == Schema Information
@@ -21,8 +25,6 @@ end
 #  id         :integer          not null, primary key
 #  title      :string(255)
 #  dir        :string(255)
-#  watched    :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  timing     :string(255)      default("Просмотр не начат")
 #

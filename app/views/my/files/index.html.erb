@@ -15,7 +15,7 @@
 
   <div class="main_page_content small-9 columns">
     <% @files.each do |dir, films| %>
-      <% watched = 0; films.each do |film| film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) ? watched += 1 : watched += 0; end %>
+      <% watched = 0; films.each { |film| film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) ? watched += 1 : watched += 0 } %>
 
       <div class='dir'>
         <%= dir %> <a href='#' class='js-toggle-dir toggle-dir'>Свернуть</a> <%= link_to 'Удалить', my_file_path(:id => dir), :method => 'delete', :data => { :confirm => 'Удалить?' } %>

@@ -11,6 +11,13 @@ class UserFilm < ActiveRecord::Base
   def watched?
     watched
   end
+
+  searchable do
+    integer :user_id
+    integer :film_id
+    boolean :watched
+    string :dir
+  end
 end
 
 # == Schema Information
@@ -23,4 +30,5 @@ end
 #  watched    :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  dir        :string(255)
 #

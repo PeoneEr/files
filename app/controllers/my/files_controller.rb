@@ -4,11 +4,11 @@ class My::FilesController < My::ApplicationController
   helper_method :title, :dir, :serias_count
 
   def index
-    @files = User.find(current_user.id).films.ordered.group_by(&:dir)
+    @files = current_user.films.search { paginate page: 1, per_page: 1_000_000; order_by :title; }.results.to_a.group_by(&:dir)
   end
 
   def destroy
-    User.find(current_user.id).user_films.where(dir: params[:id]).destroy_all
+    current_user.user_films.where(dir: params[:id]).destroy_all
     redirect_to my_root_path
   end
 

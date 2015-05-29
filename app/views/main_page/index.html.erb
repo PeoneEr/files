@@ -18,14 +18,14 @@
 
       <div class='dir'>
         <%= dir %>
-        <% f = Film.where(dir: dir) %>
+        <% f = Film.search { with :dir, dir }.results %>
         <% if f.count > 1 %>
-          Сериал (серий: <%= f.count %>)
+          <span class='label info'>Сериал (серий: <%= f.count %>)</span>
         <% else %>
-          Фильм
+          <span class='label info'>Фильм</span>
         <% end %>
 
-        <% if User.find(current_user.id).user_films.where(dir: dir).any? %>
+        <% if current_user.user_films.search { with :dir, dir }.results.any? %>
           <%= link_to 'Смотрю', start_watching_my_files_path(dir: dir), class: 'button disabled tiny' %>
         <% else %>
           <%= link_to 'Смотреть', start_watching_my_files_path(dir: dir), class: 'button success tiny' %>

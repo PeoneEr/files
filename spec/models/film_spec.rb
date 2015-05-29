@@ -12,3 +12,14 @@ RSpec.describe Film, :type => :model do
     expect(Film.last.title).to eq('title')
   end
 end
+
+# == Schema Information
+#
+# Table name: films
+#
+#  id         :integer          not null, primary key
+#  title      :string(255)
+#  dir        :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#

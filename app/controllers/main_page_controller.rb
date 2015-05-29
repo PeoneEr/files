@@ -8,7 +8,7 @@ class MainPageController < ApplicationController
       end
       render nothing: true, status: 202
     else
-      @dirs = Film.all.sort.map(&:dir).uniq
+      @dirs = Film.search { paginate page: 1, per_page: 1_000_000 }.results.to_a.sort.map(&:dir).uniq
     end
   end
 end

@@ -8,7 +8,8 @@ group :default do
   gem 'devise-i18n'
   gem 'ffi', '= 1.9.6'
   gem 'foundation-rails', :git => 'https://github.com/zurb/foundation-rails.git', :ref => 'dc2a932'
-  gem 'header'#, :path => '/Users/bvm/workspace/my/header'
+  gem 'header'
+  #gem 'progress_bar'
   gem 'inherited_resources'
   gem 'jquery-rails'
   gem 'newrelic_rpm'
@@ -20,6 +21,8 @@ group :default do
   gem 'sidekiq'
   gem 'simple_form'
   gem 'sinatra', :require => nil
+  gem 'sunspot_rails'
+  gem 'sunspot_solr'
   gem 'uglifier'
   gem 'whenever'
 end
