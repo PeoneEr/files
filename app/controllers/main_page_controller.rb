@@ -3,7 +3,7 @@ class MainPageController < ApplicationController
   helper_method :page, :per_page
 
   def index
-    @dirs = Film.search { paginate page: page, per_page: per_page }.results.to_a.sort.map(&:dir).uniq
+    @dirs = FilmDir.search { paginate page: page, per_page: per_page }.results
   end
 
   def page

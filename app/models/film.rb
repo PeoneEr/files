@@ -4,7 +4,7 @@ class Film < ActiveRecord::Base
   attr_accessible :title, :dir, :timing,
                   :serias_count
 
-  validates_presence_of :title, :dir
+  validates_presence_of :title, :film_dir_id
   validates_uniqueness_of :title
 
   has_many :user_films
@@ -14,7 +14,7 @@ class Film < ActiveRecord::Base
 
   searchable do
     string :title
-    text :dir
+    text :film_dir_id
 
     integer :user_id, :multiple => true do
       users.map(&:id)
