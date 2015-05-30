@@ -9,7 +9,6 @@ group :default do
   gem 'ffi', '= 1.9.6'
   gem 'foundation-rails', :git => 'https://github.com/zurb/foundation-rails.git', :ref => 'dc2a932'
   gem 'header'
-  #gem 'progress_bar'
   gem 'inherited_resources'
   gem 'jquery-rails'
   gem 'newrelic_rpm'
@@ -25,6 +24,7 @@ group :default do
   gem 'sunspot_solr'
   gem 'uglifier'
   gem 'whenever'
+  gem 'kaminari'
 end
 
 group :development, :test do

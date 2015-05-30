@@ -1,6 +1,6 @@
 class MainPageController < ApplicationController
   before_filter :authenticate_user!
-  helper_method :page
+  helper_method :page, :per_page
 
   def index
     @dirs = Film.search { paginate page: page, per_page: per_page }.results.to_a.sort.map(&:dir).uniq
@@ -11,6 +11,6 @@ class MainPageController < ApplicationController
   end
 
   def per_page
-    10
+    1000000
   end
 end
