@@ -14,7 +14,7 @@ class Film < ActiveRecord::Base
 
   searchable do
     string :title
-    #text :film_dir_id
+    text :film_dir_id
   end
 end
 

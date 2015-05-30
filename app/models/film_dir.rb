@@ -9,8 +9,8 @@ class FilmDir < ActiveRecord::Base
   searchable do
     text :title
 
-    #integer :user_id, :multiple => true do
-      #films.map { |m| m.users.map(&:id) }.flatten
-    #end
+    integer :user_id, :multiple => true do
+      films.map { |m| m.users.map(&:id) }.flatten
+    end
   end
 end
