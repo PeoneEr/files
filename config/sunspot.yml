@@ -21,3 +21,5 @@ test:
     log_level: WARNING
     path: /solr/test
 
+auto_commit_after_request: true
+auto_commit_after_delete_request: true
