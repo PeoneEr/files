@@ -3,7 +3,6 @@ Files::Application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   root to: 'main_page#index'
-  post '/' => 'main_page#index'
 
   devise_for :users
 
@@ -11,6 +10,7 @@ Files::Application.routes.draw do
     root to: 'files#index'
 
     post 'change_watched' => 'files#change_watched'
+    post '/' => 'files#index'
 
     resources :files do
       get :new_film, on: :collection

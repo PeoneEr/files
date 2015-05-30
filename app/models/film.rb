@@ -14,7 +14,11 @@ class Film < ActiveRecord::Base
 
   searchable do
     string :title
-    string :dir
+    text :dir
+
+    integer :user_id, :multiple => true do
+      users.map(&:id)
+    end
   end
 end
 

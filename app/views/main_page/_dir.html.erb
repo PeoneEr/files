@@ -3,7 +3,7 @@
     <%= dir %>
   </div>
   <div class="small-2 columns">
-    <% f = Film.search { with :dir, dir }.results %>
+    <% f = Film.search { fulltext dir }.results %>
     <% if f.count > 1 %>
       <span class='label info'>Сериал (серий: <%= f.count %>)</span>
     <% else %>

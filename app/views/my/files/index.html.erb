@@ -1,4 +1,15 @@
 <div class="row">
+  <%= form_tag '/my', method: :get do %>
+    <div class="small-9 columns">
+      <%= text_field_tag :q, params[:q] %>
+    </div>
+    <div class="small-3 columns">
+      <%= submit_tag 'Поиск', class: [:button, :tiny, :info] %>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
   <div class="small-3 columns">
     <ul class="side-nav">
       <li>
