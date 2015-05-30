@@ -4,7 +4,11 @@ class My::FilesController < My::ApplicationController
   helper_method :title, :dir, :serias_count
 
   def index
-    @files = Film.search { fulltext params[:q] { fields(:dir) }; order_by(:title); with :user_id, current_user.id; paginate page: 1, per_page: 1_000 }.results.group_by(&:dir)
+    @dirs = FilmDir.search {
+      paginate page: 1, per_page: 1_000_000;
+      fulltext params[:q] { fields(:title) };
+      with :user_id, current_user.id
+    }.results
   end
 
   def destroy
@@ -44,7 +48,7 @@ class My::FilesController < My::ApplicationController
   end
 
   def start_watching
-    Film.where(dir: params[:dir]).each do |film|
+    FilmDir.where(title: params[:dir]).first.films.each do |film|
       film.user_films.create!(user_id: current_user.id, film_id: film.id, dir: params[:dir])
     end
 
