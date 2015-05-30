@@ -1,12 +1,5 @@
 <div class="row">
-  <%= form_tag '/my', method: :get do %>
-    <div class="small-9 columns">
-      <%= text_field_tag :q, params[:q] %>
-    </div>
-    <div class="small-3 columns">
-      <%= submit_tag 'Поиск', class: [:button, :tiny, :info] %>
-    </div>
-  <% end %>
+  <%= render partial: 'commons/search_form' %>
 </div>
 
 <div class="row">
