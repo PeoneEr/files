@@ -30,7 +30,8 @@
 
         <% films.each do |film| %>
           <li class='title <%= "is-checked" if film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) %>'>
-            <%= check_box_tag "watched_#{film.id}", film.id, film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) ? true : false, class: 'js-child-item' %>
+            <%= check_box_tag "watched_#{film.id}", film.id, film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) ? true : false,
+              class: 'js-child-item' %>
             <label for="watched_<%= film.id %>">
               <%= film.title %>
             </label>

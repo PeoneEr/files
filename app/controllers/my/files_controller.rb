@@ -62,4 +62,11 @@ class My::FilesController < My::ApplicationController
   def serias_count
     params[:film].try(:[], :serias_count).to_i
   end
+
+  def change_watched
+    if request.xhr?
+      current_user.user_films.search { with :film_id, params[:id] }.results.first.update_attribute :watched, params[:watched]
+      render nothing: true, status: 202 and return
+    end
+  end
 end

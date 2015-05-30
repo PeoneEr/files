@@ -10,6 +10,8 @@ Files::Application.routes.draw do
   namespace :my do
     root to: 'files#index'
 
+    post 'change_watched' => 'files#change_watched'
+
     resources :files do
       get :new_film, on: :collection
       post :create_film, on: :collection

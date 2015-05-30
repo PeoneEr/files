@@ -1,14 +1,16 @@
 class MainPageController < ApplicationController
   before_filter :authenticate_user!
+  helper_method :page
 
   def index
-    if request.xhr?
-      if UserFilm.where(user_id: current_user.id, film_id: params[:id]).any?
-        UserFilm.where(user_id: current_user.id, film_id: params[:id]).first.update_attribute(:watched, params[:watched])
-      end
-      render nothing: true, status: 202
-    else
-      @dirs = Film.search { paginate page: 1, per_page: 1_000_000 }.results.to_a.sort.map(&:dir).uniq
-    end
+    @dirs = Film.search { paginate page: page, per_page: per_page }.results.to_a.sort.map(&:dir).uniq
+  end
+
+  def page
+    params[:page] || 1
+  end
+
+  def per_page
+    10
   end
 end

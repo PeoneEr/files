@@ -6,7 +6,7 @@ $ ->
       false
 
     $.ajax
-      url: '/'
+      url: '/my/change_watched'
       type: 'post'
       data: {
         id: $(this).val()
