@@ -13,4 +13,9 @@ namespace :files do
       ScanFile.new.scan(Settings['dir.url'])
     end
   end
+
+  desc 'Реиндекс фильмов'
+  task :reindex => :environment do
+    FilmDir.delay(:queue => :critical).index
+  end
 end

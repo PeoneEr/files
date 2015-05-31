@@ -14,4 +14,8 @@ class ScanFile
       Dir[file_name + "/*"].each { |f| scan(f)  }
     end
   end
+
+  def reindex_dirs
+    FilmDir.delay(:queue => :critical).index
+  end
 end
