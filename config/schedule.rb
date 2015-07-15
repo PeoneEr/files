@@ -1,8 +1,8 @@
-every :day, :at => '5:00 AM' do
+every :day, :at => '5:00 am' do
   rake 'files:scan'
 
 end
 
-every :dat, :at => '5:45 AM' do
+every :dat, :at => '5:45 am' do
   rake 'users:update_films'
 end
