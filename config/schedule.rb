@@ -3,6 +3,6 @@ every :day, :at => '5:00 am' do
 
 end
 
-every :dat, :at => '5:45 am' do
+every :day, :at => '5:45 am' do
   rake 'users:update_films'
 end
