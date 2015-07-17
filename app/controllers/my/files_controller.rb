@@ -70,7 +70,7 @@ class My::FilesController < My::ApplicationController
   def change_watched
     if request.xhr?
       current_user.user_films.search { with :film_id, params[:id] }.results.first.update_attribute :watched, params[:watched]
-      render nothing: true, status: 202 and return
+      render nothing: true, status: 200 and return
     end
   end
 end
