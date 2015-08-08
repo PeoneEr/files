@@ -1,8 +1,6 @@
 class My::FilesController < My::ApplicationController
   before_filter :authenticate_user!
 
-  helper_method :title, :dir, :serias_count
-
   def index
     @dirs = FilmDir.search {
       paginate page: 1, per_page: 1_000_000;
@@ -21,13 +19,17 @@ class My::FilesController < My::ApplicationController
   end
 
   def create_film
-    @film = Film.new(title: title, dir: title)
-    if @film.save(validate: false)
-      @film.user_films.create(user_id: current_user.id, film_id: @film.id, dir: @film.dir)
-      redirect_to my_root_path
-    else
-      render 'new_film'
+    film_dir = FilmDir.create!(title: params[:film_dir][:title])
+
+    film = film_dir.films.new(title: "Фильм")
+    film.save(validate: false)
+    film_dir.increment! :serias_count
+
+    film_dir.films.each do |film|
+      film.user_films.create(user_id: current_user.id, film_id: film.id, dir: film_dir.title)
     end
+
+    redirect_to my_root_path
   end
 
   def new_serial
@@ -35,18 +37,16 @@ class My::FilesController < My::ApplicationController
   end
 
   def create_serial
-    film_dir = FilmDir.new(title: params[:film_dir][:title])
-    if film_dir.save!
-      serias_count.times do |i|
-        f.films.create!(title: "Серия №#{i+1}")
-        f.serias_count.increment!
-      end
+    film_dir = FilmDir.create!(title: params[:film_dir][:title])
+
+    params[:film_dir][:serias_count].to_i.times do |i|
+      film = film_dir.films.new(title: "Серия №#{i+1}")
+      film.save(validate: false)
+      film_dir.increment! :serias_count
     end
 
-    FilmDir.where(title: params[:film_dir][:title]).each do |dir|
-      dir.films.each do |film|
-        film.user_films.delay.create(user_id: current_user.id, film_id: film.id, dir: dir.title)
-      end
+    film_dir.films.each do |film|
+      film.user_films.create(user_id: current_user.id, film_id: film.id, dir: film_dir.title)
     end
 
     redirect_to my_root_path
@@ -58,18 +58,6 @@ class My::FilesController < My::ApplicationController
     end
 
     redirect_to my_root_path
-  end
-
-  def title
-    params[:film].try(:[], :title)
-  end
-
-  def dir
-    params[:film].try(:[], :dir)
-  end
-
-  def serias_count
-    params[:film].try(:[], :serias_count).to_i
   end
 
   def change_watched
