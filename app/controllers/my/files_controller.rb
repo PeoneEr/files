@@ -17,7 +17,7 @@ class My::FilesController < My::ApplicationController
   end
 
   def new_film
-    @film = Film.new
+    @film = FilmDir.new
   end
 
   def create_film
@@ -31,17 +31,22 @@ class My::FilesController < My::ApplicationController
   end
 
   def new_serial
-    @film = Film.new
+    @film = FilmDir.new
   end
 
   def create_serial
-    serias_count.times do |i|
-      f = Film.new(dir: dir, title: "Серия №#{i+1}")
-      f.save(validate: false)
+    film_dir = FilmDir.new(title: params[:film_dir][:title])
+    if film_dir.save!
+      serias_count.times do |i|
+        f.films.create!(title: "Серия №#{i+1}")
+        f.serias_count.increment!
+      end
     end
 
-    Film.where(dir: dir).each do |film|
-      film.user_films.create(user_id: current_user.id, film_id: film.id, dir: dir)
+    FilmDir.where(title: params[:film_dir][:title]).each do |dir|
+      dir.films.each do |film|
+        film.user_films.delay.create(user_id: current_user.id, film_id: film.id, dir: dir.title)
+      end
     end
 
     redirect_to my_root_path

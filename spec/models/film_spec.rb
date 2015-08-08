@@ -17,9 +17,9 @@ end
 #
 # Table name: films
 #
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  dir        :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  title       :string(255)
+#  film_dir_id :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #

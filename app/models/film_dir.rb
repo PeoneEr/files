@@ -14,3 +14,14 @@ class FilmDir < ActiveRecord::Base
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: film_dirs
+#
+#  id           :integer          not null, primary key
+#  title        :string
+#  serias_count :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
