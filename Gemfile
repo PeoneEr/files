@@ -11,8 +11,10 @@ group :default do
   gem 'header'
   gem 'inherited_resources'
   gem 'jquery-rails'
+  gem 'kaminari'
   gem 'newrelic_rpm'
   gem 'pg'
+  gem 'progress_bar', git: 'https://github.com/paul/progress_bar.git'
   gem 'protected_attributes'
   gem 'rails'
   gem 'russian'
@@ -24,7 +26,6 @@ group :default do
   gem 'sunspot_solr'
   gem 'uglifier'
   gem 'whenever'
-  gem 'kaminari'
 end
 
 group :development, :test do

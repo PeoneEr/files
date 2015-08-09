@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <div class="small-3 columns">
+  <div class="small-2 columns large-3">
     <ul class="side-nav">
       <li>
         <%= link_to 'Список фильмов и сериалов', root_path %>
@@ -17,7 +17,7 @@
     </ul>
   </div>
 
-  <div class="main_page_content small-9 columns">
+  <div class="main_page_content small-10 columns large-9">
     <% @dirs.each do |dir| %>
       <div class="row">
         <div class="small-9 columns">
@@ -39,5 +39,6 @@
         <% end %>
       </ul>
     <% end %>
+    <%= paginate @dirs %>
   </div>
 </div>

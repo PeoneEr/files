@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/paul/progress_bar.git
+  revision: d656f9cfbbbe01c9314768917b3f2bcff4c6db28
+  specs:
+    progress_bar (1.0.3)
+      highline (~> 1.6.1)
+      options (~> 2.3.0)
+
+GIT
   remote: https://github.com/zurb/foundation-rails.git
   revision: dc2a9327ce1ae47e2d118da8621d5bd0d2b2da89
   ref: dc2a932
@@ -101,9 +109,9 @@ GEM
       compass (~> 1.0.0)
       sass-rails (<= 5.0.1)
       sprockets (< 2.13)
-    configliere (0.4.22)
-      highline (= 1.5.2)
-      multi_json (~> 1.10.1)
+    configliere (0.4.18)
+      highline (>= 1.5.2)
+      multi_json (>= 1.1)
     connection_pool (2.2.0)
     devise (3.5.1)
       bcrypt (~> 3.0)
@@ -125,7 +133,7 @@ GEM
     header (0.0.9)
       compass-rails
       sass-rails (>= 3.2)
-    highline (1.5.2)
+    highline (1.6.21)
     hike (1.2.3)
     hitimes (1.2.2)
     i18n (0.7.0)
@@ -149,13 +157,14 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.8.0)
-    multi_json (1.10.1)
+    multi_json (1.11.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
     newrelic_rpm (3.12.0.288)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    options (2.3.2)
     orm_adapter (0.5.0)
     pg (0.18.2)
     pr_geohash (1.0.0)
@@ -302,6 +311,7 @@ DEPENDENCIES
   kaminari
   newrelic_rpm
   pg
+  progress_bar!
   protected_attributes
   rails
   rspec-rails

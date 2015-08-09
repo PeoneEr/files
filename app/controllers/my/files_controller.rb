@@ -3,7 +3,7 @@ class My::FilesController < My::ApplicationController
 
   def index
     @dirs = FilmDir.search {
-      paginate page: 1, per_page: 1_000_000;
+      paginate page: params[:page], per_page: 5;
       fulltext params[:q] { fields(:title) };
       with :user_id, current_user.id
     }.results
