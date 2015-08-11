@@ -28,7 +28,13 @@
         </div>
       </div>
       <ul class="small-block-grid-4">
-        <% dir.films.order(:title).each do |film| %>
+        <% if dir.films.map(&:title).include?('Серия №1') %>
+          <% films = dir.films.sort %>
+        <% else %>
+          <% films = dir.films.order(:title) %>
+        <% end %>
+
+        <% films.each do |film| %>
           <li>
             <%= check_box_tag "watched_#{film.id}", film.id, film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) ? true : false,
               class: 'js-child-item' %>
