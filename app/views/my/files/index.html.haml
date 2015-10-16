@@ -1,0 +1,36 @@
+.row
+  = render partial: 'commons/search_form'
+
+.row
+  .col-xs-2
+    %ul.nav.nav-pills.nav-stacked.affix
+      %li
+        = link_to 'Список фильмов и сериалов', root_path
+      %li
+        = link_to 'Добавить фильм', new_film_my_files_path
+      %li
+        = link_to 'Добавить сериал', new_serial_my_files_path
+
+  .col-xs-10
+    -@dirs.each do |dir|
+      .row
+        .col-xs-9
+          =dir.title
+
+        .col-xs-3
+          = link_to 'Удалить', my_file_path(:id => dir.title), method: :delete, class: ['btn btn-danger'], data: { :confirm => 'Удалить?' }
+
+        %ul.col-xs-12
+          - if dir.films.map(&:title).include?('Серия №1')
+            - films = dir.films.sort
+          -else
+            - films = dir.films.order(:title)
+
+          - films.each do |film|
+            %li.col-xs-3
+              = check_box_tag "watched_#{film.id}", film.id, film.user_films.where(user_id: current_user.id).try(:first).try(:watched?) ? true : false, class: 'js-child-item'
+
+              %label{:for => "watched_#{film.id}", :title => film.title}
+                = film.title.truncate(15)
+
+    = paginate @dirs

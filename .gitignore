@@ -7,3 +7,4 @@
 /config/deploy.rb
 /config/deploy/production.rb
 /config/newrelic.yml
+/bin

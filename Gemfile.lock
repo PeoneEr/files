@@ -6,15 +6,6 @@ GIT
       highline (~> 1.6.1)
       options (~> 2.3.0)
 
-GIT
-  remote: https://github.com/zurb/foundation-rails.git
-  revision: dc2a9327ce1ae47e2d118da8621d5bd0d2b2da89
-  ref: dc2a932
-  specs:
-    foundation-rails (5.4.5.0)
-      railties (>= 3.1.0)
-      sass (>= 3.2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -57,7 +48,13 @@ GEM
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
     arel (6.0.2)
+    autoprefixer-rails (6.0.3)
+      execjs
+      json
     bcrypt (3.1.10)
+    bootstrap-sass (3.3.5.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.3.0)
     builder (3.2.2)
     capistrano (3.4.0)
       i18n
@@ -127,6 +124,8 @@ GEM
     ffi (1.9.6)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -290,6 +289,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bootstrap-sass (~> 3.3.5)
   capistrano
   capistrano-bundler
   capistrano-db-tasks
@@ -304,7 +304,7 @@ DEPENDENCIES
   devise
   devise-i18n
   ffi (= 1.9.6)
-  foundation-rails!
+  haml
   header
   inherited_resources
   jquery-rails
@@ -326,4 +326,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.10.5
+   1.10.6

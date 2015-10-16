@@ -1,0 +1,7 @@
+= form_tag '/my', :method => :get do
+  .col-xs-9
+    .form-group
+      = text_field_tag :q, params[:q], :placeholder => 'Поиск по моим фильмам и сериалам'
+
+  .col-xs-3
+    = submit_tag 'Поиск', class: ['btn btn-info']
